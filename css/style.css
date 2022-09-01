@@ -355,13 +355,17 @@ header {
   background-color: transparent;
   background-image: url(/img/range-bck.svg);
   border-radius: 0;
-  z-index: 10;
-  box-sizing: content-box;
+}
+
+.form-range:first-child::-webkit-slider-thumb {
+  background-image: url(/img/range-bck.svg);
+  z-index: 9;
 }
 
 .form-range:last-child::-webkit-slider-thumb {
+  background-image: url(/img/range-bck.svg);
   margin-top: -20px;
-  z-index: 10;
+  z-index: 9;
 }
 
 .form-range::-moz-range-thumb {
@@ -376,7 +380,6 @@ header {
 
 .form-range::-webkit-slider-thumb:active {
   background-color: transparent;
-  
 }
 
 .form-range::-webkit-slider-runnable-track {
@@ -385,16 +388,17 @@ header {
   background-color: var(--pale-grey);
   border-radius: 4px;
   border: 0;
+  
+}
+
+.form-range:first-child::-webkit-slider-runnable-track {
+  background-color: green;
   z-index: 1;
 }
 
 .form-range:last-child::-webkit-slider-runnable-track {
   background-color: red;
-  z-index: 0;
-}
-
-.form-range:last-child::-moz-range-track {
-  background: none transparent;
+  z-index: 2;
 }
 
 
