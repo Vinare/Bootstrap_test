@@ -340,17 +340,10 @@ header {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
- 
-}
-
-.form-range:first-child {
-  z-index: 1;
-  height: 0;
 }
 
 .form-range:focus::-webkit-slider-thumb {
   box-shadow: none;
-  
 }
 
 .form-range::-webkit-slider-thumb {
@@ -360,17 +353,8 @@ header {
   background-color: transparent;
   background-image: url(/img/range-bck.svg);
   border-radius: 0;
-}
-
-.form-range:first-child::-webkit-slider-thumb {
-  background-image: url(/img/range-bck.svg);
-  
-}
-
-.form-range:last-child::-webkit-slider-thumb {
-  background-image: url(/img/range-bck.svg);
-  margin-top: -20px;
-  
+  position: relative;
+  z-index: 10;
 }
 
 .form-range::-moz-range-thumb {
@@ -380,7 +364,6 @@ header {
   background-color: transparent;
   background-image: url(/img/range-bck.svg);
   border-radius: 0;
-  
 }
 
 .form-range::-webkit-slider-thumb:active {
@@ -393,20 +376,7 @@ header {
   background-color: var(--pale-grey);
   border-radius: 4px;
   border: 0;
-  
 }
-
-.form-range:first-child::-webkit-slider-runnable-track {
-
-  background-color: green;
-  
-}
-
-.form-range:last-child::-webkit-slider-runnable-track {
-  background-color: red;
-  
-}
-
 
 @media (min-width: 1440px) {
   .mw-420 {
