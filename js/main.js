@@ -5,27 +5,27 @@ const rangeRunners = () => {
   const blockRight = document.getElementById("range-span2");
 
   runner.addEventListener("input", (e) => {
-    blockLeft.textContent = e.target.value;
-
-    if (runner.value == +runner2.value && runner.value <= 99) {
-      runner2.value = +runner2.value + 1;
-      blockRight.textContent = runner2.value;
-    } else if (e.target.value == 100) {
-      runner.value = 99;
-      blockLeft.textContent = runner.value;
+    if (+runner.value >= +runner2.value && +runner.value <= 99) {
+      runner2.value = +runner.value + 1;
+    } else if (+runner.value === 100) {
+      runner.value = 99
+      runner2.value = 100;
     }
+
+    blockLeft.textContent = runner.value;
+    blockRight.textContent = runner2.value;
   });
 
   runner2.addEventListener("input", (e) => {
-    blockRight.textContent = e.target.value;
-
-    if (runner2.value == +runner.value && runner2.value >= 1) {
+    if (+runner2.value <= +runner.value && runner2.value >= 1) {
       runner.value = +runner2.value - 1;
-      blockLeft.textContent = runner.value;
     } else if (e.target.value == 0) {
       runner2.value = 1;
-      blockRight.textContent = runner2.value;
+      runner.value = 0;
     }
+
+    blockLeft.textContent = runner.value;
+    blockRight.textContent = runner2.value;
   });
 };
 
