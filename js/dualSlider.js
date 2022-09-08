@@ -1,7 +1,7 @@
 const dualSlider = () => {
   function controlFromSlider(fromSlider, toSlider, fromInput) {
     const [from, to] = getParsed(fromSlider, toSlider);
-    fillSlider(fromSlider, toSlider, "#C6C6C6", "#D14114", toSlider);
+    fillSlider(fromSlider, toSlider, "#F4F4F4", "#D14114", toSlider);
     if (from > to) {
       fromSlider.value = to;
       fromInput.textContent = to;
@@ -12,7 +12,7 @@ const dualSlider = () => {
 
   function controlToSlider(fromSlider, toSlider, toInput) {
     const [from, to] = getParsed(fromSlider, toSlider);
-    fillSlider(fromSlider, toSlider, "#C6C6C6", "#D14114", toSlider);
+    fillSlider(fromSlider, toSlider, "#F4F4F4", "#D14114", toSlider);
     setToggleAccessible(toSlider);
     if (from <= to) {
       toSlider.value = to;
