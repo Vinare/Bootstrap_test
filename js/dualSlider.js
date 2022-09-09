@@ -1,7 +1,13 @@
 const dualSlider = () => {
   function controlFromSlider(fromSlider, toSlider, fromInput) {
     const [from, to] = getParsed(fromSlider, toSlider);
-    fillSlider(fromSlider, toSlider, "#F4F4F4", "#D14114", toSlider);
+    fillSlider(
+      fromSlider,
+      toSlider,
+      "var(--background-range)",
+      "var(--input-range-track)",
+      toSlider
+    );
     if (from > to) {
       fromSlider.value = to;
       fromInput.textContent = to;
@@ -12,7 +18,13 @@ const dualSlider = () => {
 
   function controlToSlider(fromSlider, toSlider, toInput) {
     const [from, to] = getParsed(fromSlider, toSlider);
-    fillSlider(fromSlider, toSlider, "#F4F4F4", "#D14114", toSlider);
+    fillSlider(
+      fromSlider,
+      toSlider,
+      "var(--background-range)",
+      "var(--input-range-track)",
+      toSlider
+    );
     setToggleAccessible(toSlider);
     if (from <= to) {
       toSlider.value = to;
@@ -57,7 +69,13 @@ const dualSlider = () => {
   const fromInput = document.querySelector("#range-span1");
   const toInput = document.querySelector("#range-span2");
 
-  fillSlider(fromSlider, toSlider, "#F4F4F4", "#D14114", toSlider);
+  fillSlider(
+    fromSlider,
+    toSlider,
+    "var(--background-range)",
+    "var(--input-range-track)",
+    toSlider
+  );
   setToggleAccessible(toSlider);
 
   fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);

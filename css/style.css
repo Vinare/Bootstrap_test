@@ -30,7 +30,16 @@
   /* Chrome < 4, Legacy iOS */
 }
 
-:root {
+[data-theme="light"] {
+  --background: #FCFCFC;
+  --background-main: #FFFFFF;
+  --background-block: #FFFFFF;
+  --background-disabled: #F4F4F4;
+  --background-range: #F4F4F4;
+  --background-btn-group: #F4F4F4;
+  --background-btn-active: #FFFFFF;
+  --main-title: #000000;
+  --color-block-range: #9F9F9F;
   --grey: #C4C4C4;
   --pale-grey: #F4F4F4;
   --coffee: #A9967D;
@@ -38,10 +47,33 @@
   --subtitle: #282828;
   --border: #DAD5CE;
   --orange: #D14114;
+  --input-range-bg: url("/img/range-bck.svg");
+  --input-range-track: #D14114;
 } 
 
-body {
-  background: #FCFCFC;
+[data-theme="dark"] {
+  --background: #0F1723;
+  --background-main: #141C2C;
+  --background-block: rgba(255, 255, 255, 0.1);
+  --background-disabled: rgba(244, 244, 244, 0.1);
+  --background-range: #0F1723;
+  --background-btn-group: rgba(244, 244, 244, 0.2);
+  --background-btn-active: rgba(255, 255, 255, 0.3);
+  --main-title: #FFFFFF;
+  --color-block-range: #FFFFFF;
+  --grey: #202E44;
+  --pale-grey: #F4F4F4;
+  --coffee: #60A772;
+  --placeholder: #9F9F9F;
+  --subtitle: #FFFFFF;
+  --border: #DAD5CE;
+  --orange: #D14114;
+  --input-range-bg: url("/img/range-bck-green.svg");
+  --input-range-track: rgba(255, 255, 255, 0.3);
+}
+
+.theme {
+  background: var(--background);
 }
 
 .mb-16 {
@@ -58,7 +90,7 @@ body {
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
-  color: #000000;
+  color: var(--main-title);
   margin-bottom: 0;
 }
 
@@ -98,7 +130,7 @@ body {
 }
 
 .btn-add {
-  background: #FFFFFF;
+  background: transparent;
   border-radius: 4px;
   padding: 8px 16px;
   font-family: 'PT Sans';
@@ -114,7 +146,7 @@ body {
 }
 
 .btn-plus {
-  background: #FFFFFF;
+  background: transparent;
   border-radius: 4px;   
   font-family: 'PT Sans';
   font-style: normal;
@@ -139,20 +171,21 @@ body {
   line-height: 22px;
   text-align: center;
   color: var(--placeholder);
+  background: var(--background-disabled);
   border: 1px solid #F6F6F6;
   padding: 8px 16px;
   display: flex;
   align-items: center;
 }
 
-.btn-plus img {
+.btn-plus svg {
   margin-right: 4px;
 }
 
 .btn-group {
-  background: var(--pale-grey);
   border-radius: 4px;
   padding: 4px 0;
+  background: var(--background-btn-group);
 }
 
 .btn-group .btn {
@@ -162,7 +195,7 @@ body {
 }
 
 .btn-group .btn.btn-active {
-  background: #FFFFFF;
+  background: var(--background-btn-active);
   box-shadow: 0px 1px 4px rgba(58, 58, 58, 0.3);
   font-weight: 700;
 }
@@ -176,7 +209,6 @@ body {
   padding: 0 4px;
   border-right: 0;
 }
-
 
 header {
   height: 123px;
@@ -199,6 +231,7 @@ header {
   height: fit-content;
   max-width: 904px;
   margin-bottom: 200px;
+  background: var(--background-main);
 }
 
 .subtitle {
@@ -224,6 +257,7 @@ header {
   line-height: 20px;
   color: var(--placeholder);
   border: 1px solid var(--border);
+  background: var(--background-block);
   border-radius: 4px;
 }
 
@@ -243,6 +277,7 @@ header {
   margin: 0 4px 0 0;
   border-radius: 4px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .form-check-input__input:checked {
@@ -251,15 +286,23 @@ header {
   background-image: url(/img/Check.svg)!important;
   background-size: 11px 8px;
   background-position: center;
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-check-input__input:focus {
+  outline: 0;
+  box-shadow: none;
 }
 
 .form-check-label {
   font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--subtitle);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--subtitle);
+  cursor: pointer;
 }
 
 .block-1 {
@@ -267,6 +310,7 @@ header {
   border-radius: 8px;
   padding: 16px;
   position: relative;
+  background: var(--background-block);
 }
 
 .switch-group {
@@ -300,6 +344,13 @@ header {
   background-image: url(/img/Circle_white.svg) !important;
   background-size: 13px 13px;
   background-position: left 15px top 3px;
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-switch .form-check-input:focus {
+  outline: 0;
+  box-shadow: none;
 }
 
 .form-select {
@@ -312,6 +363,7 @@ header {
   font-size: 14px;
   line-height: 20px;
   color: var(--placeholder);
+  background: var(--background-block);
   background-image: none;
 }
 
@@ -359,11 +411,13 @@ header {
   width: 48px;
   height: 48px;
   border: 1px solid var(--border);
+  background: var(--background-block);
   border-radius: 4px;
   padding: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-block-range);
 }
 
 .range {
@@ -374,7 +428,7 @@ header {
   flex-grow: 1;
   margin-left: 10px;
   margin-right: 10px;
-  
+  background: var(--background-block);
 }
 
 /* RANGE */
@@ -402,7 +456,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 12px;
   height: 40px;
   background-color: transparent;
-  background-image: url(/img/range-bck.svg);
+  background-image: var(--input-range-bg);
   border-radius: 0;
   cursor: pointer;
 }
@@ -454,6 +508,7 @@ input[type="range"] {
   background-color: #C6C6C6;
   pointer-events: none;
 }
+
 
 #fromSlider {
   height: 0;

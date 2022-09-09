@@ -41,3 +41,23 @@ const btnActive = () => {
 };
 
 btnActive();
+
+const changeThemeColor = () => {
+  const btns = document.querySelectorAll(".btn-group .btn");
+  const btnDark = document.getElementById("dark");
+  const theme = document.querySelector(".theme");
+
+  theme.setAttribute("data-theme", "light");
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      if (e.target === btnDark) {
+        theme.setAttribute("data-theme", "dark");
+      } else {
+        theme.setAttribute("data-theme", "light");
+      }
+    });
+  });
+};
+
+changeThemeColor();
