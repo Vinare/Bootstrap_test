@@ -29,10 +29,14 @@ rangeRunners();
 
 const btnActive = () => {
   const btnGroup = document.querySelector(".btn-group");
-  const btn = btnGroup.querySelectorAll(".btn");
+  const btns = btnGroup.querySelectorAll(".btn");
 
-  btn.addEventListener("click", () => {
-    console.log("клик");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      btns.forEach((button) => button.classList.remove("btn-active"));
+
+      e.target.classList.toggle("btn-active");
+    });
   });
 };
 
