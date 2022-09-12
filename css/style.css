@@ -377,6 +377,7 @@ header {
 }
 
 .delete-button {
+  display: none;
   position: absolute;
   width: 24px;
   height: 24px;
@@ -385,6 +386,10 @@ header {
   top: -12px;
   right: -12px;
   background: #FFFFFF;
+}
+
+.block-1:hover .delete-button {
+  display: block;
 }
 
 .cart {
